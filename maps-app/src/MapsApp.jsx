@@ -1,11 +1,11 @@
 import { MapPage } from "./pages/MapPage";
-
+import SocketProvider from './context/SocketContext';
 
 function MapsApp() {
   return (
-    <div>
+    <SocketProvider>
       <MapPage />
-    </div>
+    </SocketProvider>
   );
 }
 

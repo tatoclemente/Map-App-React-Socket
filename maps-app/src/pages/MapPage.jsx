@@ -1,7 +1,8 @@
 
 
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useMapBox } from '../hooks/useMapBox';
+import { SocketContext } from '../context/SocketContext';
 
 
 const initialPoint = {
@@ -12,6 +13,8 @@ const initialPoint = {
 
 
 export const MapPage = () => {
+
+  const { socket } = useContext( SocketContext )
 
   const { coords, setRef, newMarker$, markerMovement$ } = useMapBox( initialPoint )
 
