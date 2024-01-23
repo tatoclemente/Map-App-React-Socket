@@ -14,8 +14,6 @@ export const MapPage = () => {
   const { coords, setRef } = useSocketMapBox( initialPoint )
 
   
-
-
   return (
     <>
 
