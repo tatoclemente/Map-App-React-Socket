@@ -20,15 +20,21 @@ class Sockets {
 
 
       // Marcadores activos
-      socket.emit('markers-actives', this.markers.actives);
+      socket.emit('active-markers', this.markers.actives);
 
       // Marcador nuevo
       socket.on('new-marker', ( marker ) => {
-        console.log('New Marker');
-        console.log(marker);
+
+        this.markers.addMarker( marker );
+
+        socket.broadcast.emit('new-marker', marker);
       })
 
       // Todo: Marcador actualizado
+      socket.on('update-marker', ( marker ) => {
+        this.markers.updateMarker( marker );
+        socket.broadcast.emit('update-marker', marker);
+      })
       
     }); 
   }
